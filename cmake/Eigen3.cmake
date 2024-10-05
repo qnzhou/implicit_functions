@@ -8,11 +8,5 @@ if (NOT TARGET Eigen3::Eigen)
         GIT_SHALLOW TRUE
     )
 
-    FetchContent_GetProperties(Eigen)
-    if(NOT eigen_POPULATED)
-        FetchContent_Populate(Eigen)
-        add_library(Eigen3::Eigen INTERFACE IMPORTED)
-        target_include_directories(Eigen3::Eigen SYSTEM INTERFACE
-            ${eigen_SOURCE_DIR})
-    endif()
+    FetchContent_MakeAvailable(Eigen)
 endif()
